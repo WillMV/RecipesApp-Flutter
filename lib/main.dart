@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/providers/theme_provider.dart';
 
-void main(List<String> args) {
+void main() {
   runApp(const MyApp());
 }
 
@@ -9,17 +10,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          body: Container(
-          padding: const EdgeInsets.all(50),
-          color: Colors.deepPurpleAccent,
-        child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Image.asset('assets/logo-recipes.png'),
-        ]),
-      )),
+    return AnimatedBuilder(builder: (context, child) {
+      return MaterialApp(
+        theme: ThemeProvider.instance.getTheme(),
+        title: 'Recipes App',
+        home: const HomePage(),
+      );
+    }, animation: ThemeProvider.instance,);
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: ThemeProvider.instance.getButtonIcon(),
+        onPressed: () {
+          ThemeProvider.instance.changeTheme();
+        },
+      ),
     );
   }
 }
