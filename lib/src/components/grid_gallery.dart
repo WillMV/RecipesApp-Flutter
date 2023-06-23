@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/components/card_middle.dart';
+import '../components/card_middle.dart';
 
 class GridGallery extends StatelessWidget {
   const GridGallery({super.key, required this.recipes});

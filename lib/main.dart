@@ -3,12 +3,12 @@
 // www.thecocktaildb.com/api.php
 
 import 'package:flutter/material.dart';
-import 'package:recipes_app/components/card_bigger.dart';
-import 'package:recipes_app/components/card_middle.dart';
-import 'package:recipes_app/pages/drinks_page.dart';
-import 'package:recipes_app/pages/fav_page.dart';
-import 'package:recipes_app/pages/meals_page.dart';
-import 'package:recipes_app/controller/theme_controller.dart';
+import 'package:recipes_app/src/components/card_bigger.dart';
+import 'package:recipes_app/src/components/card_middle.dart';
+import 'package:recipes_app/src/pages/drinks_page.dart';
+import 'package:recipes_app/src/pages/fav_page.dart';
+import 'package:recipes_app/src/pages/meals_page.dart';
+import 'package:recipes_app/src/controllers/theme_controller.dart';
 import './mock.dart';
 
 void main() {

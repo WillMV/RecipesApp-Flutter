@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/components/list_gallery.dart';
+import '../components/list_gallery.dart';
 import 'package:recipes_app/mock.dart';
 
 class FavPage extends StatelessWidget {
