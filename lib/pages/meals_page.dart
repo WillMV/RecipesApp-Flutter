@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/components/gallery_middle.dart';
+import 'package:recipes_app/components/grid_gallery.dart';
 import '../mock.dart';
 
 class MealPage extends StatelessWidget {
@@ -7,6 +7,6 @@ class MealPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: GalleryMiddle(recipes: MEALS));
+    return Scaffold(body: GridGallery(recipes: MEALS));
   }
 }

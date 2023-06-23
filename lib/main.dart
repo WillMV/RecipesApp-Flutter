@@ -1,12 +1,14 @@
 // ignore_for_file: unused_import
+// www.themealdb.com/api.php
+// www.thecocktaildb.com/api.php
 
 import 'package:flutter/material.dart';
-import 'package:hello_world/components/card_bigger.dart';
-import 'package:hello_world/components/card_middle.dart';
-import 'package:hello_world/pages/drinks_page.dart';
-import 'package:hello_world/pages/fav_page.dart';
-import 'package:hello_world/pages/meals_page.dart';
-import 'package:hello_world/controller/theme_controller.dart';
+import 'package:recipes_app/components/card_bigger.dart';
+import 'package:recipes_app/components/card_middle.dart';
+import 'package:recipes_app/pages/drinks_page.dart';
+import 'package:recipes_app/pages/fav_page.dart';
+import 'package:recipes_app/pages/meals_page.dart';
+import 'package:recipes_app/controller/theme_controller.dart';
 import './mock.dart';
 
 void main() {
