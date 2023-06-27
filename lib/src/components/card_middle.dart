@@ -8,7 +8,6 @@ class CardMiddle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      // color: Colors.white60,
       elevation: 5,
       clipBehavior: Clip.hardEdge,
       child: InkWell(
@@ -18,7 +17,7 @@ class CardMiddle extends StatelessWidget {
         },
         child: Column(
           children: [
-            Image.network(srcImg),
+            Image.network(srcImg, height: 150, width: 200, fit: BoxFit.cover),
             Padding(
               padding: const EdgeInsets.only(left: 8, top: 8),
               child: Row(

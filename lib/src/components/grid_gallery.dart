@@ -13,8 +13,8 @@ class GridGallery extends StatelessWidget {
         itemBuilder: (ctx, index) {
           final recipe = recipes[index];
           return CardMiddle(
-            srcImg: recipe["img"],
-            name: recipe["name"],
+            srcImg: recipe.thumb,
+            name: recipe.name,
           );
         });
   }
