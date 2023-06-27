@@ -11,10 +11,7 @@ class GridGallery extends StatelessWidget {
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (ctx, index) {
-          final recipe = recipes[index];
-          return CardMiddle(
-            srcImg: recipe.thumb,
-            name: recipe.name,
+          return CardMiddle(recipe: recipes[index],
           );
         });
   }
