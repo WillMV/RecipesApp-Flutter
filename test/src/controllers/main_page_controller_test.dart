@@ -1,24 +1,24 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:recipes_app/src/controllers/constaints.dart';
-import 'package:recipes_app/src/controllers/page_controller.dart';
+import 'package:recipes_app/src/controllers/constaints_controller.dart';
+import 'package:recipes_app/src/controllers/main_page_controller.dart';
 import 'package:recipes_app/src/models/drink_model.dart';
 import 'package:recipes_app/src/repositories/recipes_repositories.dart';
 
-import 'drink_page_controller_test.mocks.dart';
+import 'main_page_controller_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<FetchRecipes>()])
 void main() {
   group('Page Controller', () {
-  late MockFetchRecipes repository;
-  late PageControl pageController;
+    late MockFetchRecipes repository;
+    late MainPageController pageController;
 
-  setUp(() {
-    repository = MockFetchRecipes();
-    pageController =
-        PageControl(typeRecipe: TypeRecipe.drink, repository: repository);
-  });
+    setUp(() {
+      repository = MockFetchRecipes();
+      pageController = MainPageController(
+          typeRecipe: TypeRecipe.drink, repository: repository);
+    });
     test('Deve preencher a variavel drinks', () async {
       when(repository.fetchDrinks()).thenAnswer((_) async => [
             Drink(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/components/grid_gallery.dart';
-import '../controllers/constaints.dart';
-import '../controllers/page_controller.dart';
+import '../controllers/constaints_controller.dart';
+import '../controllers/main_page_controller.dart';
 
 class MealPage extends StatefulWidget {
   const MealPage({super.key});
@@ -11,7 +11,7 @@ class MealPage extends StatefulWidget {
 }
 
 class _MealPageState extends State<MealPage> {
-  final controller = PageControl(typeRecipe: TypeRecipe.meal);
+  final controller = MainPageController(typeRecipe: TypeRecipe.meal);
 
   _start() {
     return Container();
