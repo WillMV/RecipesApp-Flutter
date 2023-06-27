@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:recipes_app/src/controllers/constaints.dart';
-import 'package:recipes_app/src/controllers/drink_page_controller.dart';
+import 'package:recipes_app/src/controllers/page_controller.dart';
 import 'package:recipes_app/src/models/drink_model.dart';
 import 'package:recipes_app/src/repositories/recipes_repositories.dart';
 
@@ -12,7 +12,8 @@ import 'drink_page_controller_test.mocks.dart';
 void main() {
   group('Drink controller', () {
     final repository = MockFetchRecipes();
-    final drinkController = DrinkPageController(repository);
+    final pageController =
+        PageControl(typeRecipe: TypeRecipe.drink, repository: repository);
     test('Deve preencher a variavel drinks', () async {
       when(repository.fetchDrinks()).thenAnswer((_) async => [
             Drink(
@@ -23,16 +24,16 @@ void main() {
                 instructions: 'instructions',
                 thumb: 'thumb')
           ]);
-      expect(drinkController.status, Status.start);
-      await drinkController.start();
-      expect(drinkController.status, Status.success);
-      expect(drinkController.drinks.isNotEmpty, true);
+      expect(pageController.status.value, Status.start);
+      await pageController.start();
+      expect(pageController.status.value, Status.success);
+      expect(pageController.recipes.isNotEmpty, true);
     });
     test('Deve alterar estado para error caso a requisição falhe', () async {
       when(repository.fetchDrinks()).thenThrow(Exception());
-      expect(drinkController.status, Status.start);
-      await drinkController.start();
-      expect(drinkController.status, Status.error);
+      expect(pageController.status.value, Status.start);
+      await pageController.start();
+      expect(pageController.status.value, Status.error);
     });
   });
 }

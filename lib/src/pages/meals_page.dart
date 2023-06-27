@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/src/repositories/recipes_repositories.dart';
-import '../components/grid_gallery.dart';
-import '../models/meal_model.dart';
+import 'package:recipes_app/src/components/grid_gallery.dart';
+import '../controllers/constaints.dart';
+import '../controllers/page_controller.dart';
 
 class MealPage extends StatefulWidget {
   const MealPage({super.key});
@@ -11,26 +11,55 @@ class MealPage extends StatefulWidget {
 }
 
 class _MealPageState extends State<MealPage> {
-  late Future<List<Meal>> meals;
+  final controller = PageControl(typeRecipe: TypeRecipe.meal);
+
+  _start() {
+    return Container();
+  }
+
+  _loading() {
+    return const Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+
+  _error() {
+    return const Text('Error ;=;');
+  }
+
+  _success() {
+    return GridGallery(recipes: controller.recipes);
+  }
+
+  stateManagement(Status status) {
+    switch (status) {
+      case Status.loading:
+        return _loading();
+
+      case Status.error:
+        return _error();
+
+      case Status.success:
+        return _success();
+      case Status.start:
+        _start();
+      default:
+        _start();
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-    meals = FetchRecipes(null).fetchMeals();
+    controller.start();
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: meals,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return GridGallery(recipes: snapshot.data as List);
-          }
-          if (snapshot.hasError) {
-            return Text(snapshot.error.toString());
-          }
-          return const CircularProgressIndicator();
+    return AnimatedBuilder(
+        animation: controller.status,
+        builder: (ctx, child) {
+          return stateManagement(controller.status.value);
         });
   }
 }

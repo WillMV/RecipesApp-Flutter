@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/controllers/constaints.dart';
-import 'package:recipes_app/src/controllers/drink_page_controller.dart';
+import '../controllers/page_controller.dart';
 import '../models/drink_model.dart';
 import '../components/grid_gallery.dart';
 
@@ -13,7 +13,7 @@ class DrinkPage extends StatefulWidget {
 
 class _DrinkPageState extends State<DrinkPage> {
   late Future<List<Drink>> drinks;
-  final controller = DrinkPageController(null);
+  final controller = PageControl(typeRecipe: TypeRecipe.drink);
 
   Widget _start() {
     return Container();
@@ -30,7 +30,7 @@ class _DrinkPageState extends State<DrinkPage> {
   }
 
   Widget _success() {
-    return GridGallery(recipes: controller.drinks);
+    return GridGallery(recipes: controller.recipes);
   }
 
   Widget stateManagement(Status status) {

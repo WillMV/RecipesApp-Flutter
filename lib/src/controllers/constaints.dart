@@ -4,3 +4,8 @@ enum Status {
   success,
   error
 }
+
+enum TypeRecipe {
+  meal,
+  drink,
+}

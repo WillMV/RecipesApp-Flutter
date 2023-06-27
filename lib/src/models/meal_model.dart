@@ -1,9 +1,16 @@
-class Meal {
+import 'package:recipes_app/src/models/recipe_model.dart';
+
+class Meal implements Recipe {
+  @override
   String id;
+  @override
   String name;
+  @override
   String category;
   String area;
+  @override
   String instructions;
+  @override
   String thumb;
   // String tags;
 

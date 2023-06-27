@@ -1,10 +1,17 @@
-class Drink {
-  final String id;
-  final String name;
-  final String category;
-  final String isAlcoholic;
-  final String instructions;
-  final String thumb;
+import 'package:recipes_app/src/models/recipe_model.dart';
+
+class Drink implements Recipe {
+  @override
+  String id;
+  @override
+  String name;
+  @override
+  String category;
+  String isAlcoholic;
+  @override
+  String instructions;
+  @override
+  String thumb;
   // final String ingredients;
 
   Drink({
