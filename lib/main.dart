@@ -1,7 +1,4 @@
 // ignore_for_file: unused_import
-// www.themealdb.com/api.php
-// www.thecocktaildb.com/api.php
-
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/components/card_bigger.dart';
 import 'package:recipes_app/src/components/card_middle.dart';
@@ -9,7 +6,7 @@ import 'package:recipes_app/src/pages/drinks_page.dart';
 import 'package:recipes_app/src/pages/fav_page.dart';
 import 'package:recipes_app/src/pages/meals_page.dart';
 import 'package:recipes_app/src/controllers/theme_controller.dart';
-import './mock.dart';
+// import '../test/src/repositories/mock.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,9 +52,8 @@ class HomePage extends StatelessWidget {
             body: const TabBarView(children: [
               MealPage(),
               DrinkPage(),
-              // CardMiddle(srcImg: srcImg, name: "Churrasco"),
-              FavPage(),
-              // CardBigger(name: "Churrasco", srcImg: srcImg)
+              DrinkPage(),
+              // FavPage(),
             ]),
             floatingActionButton: AnimatedBuilder(
               animation: ThemeProvider.instance,
