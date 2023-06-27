@@ -8,18 +8,16 @@ import 'constaints.dart';
 // https://www.themealdb.com/api/json/v1/1/search.php?s=
 // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=
 class FetchRecipes {
-  late Dio dio;
+  final Dio _client;
 
-  FetchRecipes(Dio? client) {
-    dio = client ?? Dio();
-  }
+  FetchRecipes(Dio? client) : _client = client ?? Dio();
 
   void resValidate(int? statusCode) {
     if (statusCode != 200) throw Exception('Requisição falhou $statusCode.');
   }
 
    Future<List<Drink>> fetchDrinks() async {
-    final response = await dio.get(drinkUrl);
+    final response = await _client.get(drinkUrl);
 
     resValidate(response.statusCode);
 
@@ -28,7 +26,7 @@ class FetchRecipes {
   }
 
   Future<List<Meal>> fetchMeals() async {
-    final response = await dio.get(mealUrl);
+    final response = await _client.get(mealUrl);
 
     resValidate(response.statusCode);
 
