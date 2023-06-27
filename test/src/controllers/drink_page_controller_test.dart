@@ -10,10 +10,15 @@ import 'drink_page_controller_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<FetchRecipes>()])
 void main() {
-  group('Drink controller', () {
-    final repository = MockFetchRecipes();
-    final pageController =
+  group('Page Controller', () {
+  late MockFetchRecipes repository;
+  late PageControl pageController;
+
+  setUp(() {
+    repository = MockFetchRecipes();
+    pageController =
         PageControl(typeRecipe: TypeRecipe.drink, repository: repository);
+  });
     test('Deve preencher a variavel drinks', () async {
       when(repository.fetchDrinks()).thenAnswer((_) async => [
             Drink(
