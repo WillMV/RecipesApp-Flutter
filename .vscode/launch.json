@@ -13,18 +13,18 @@
       "flutterMode": "debug",
     },
     {
-      "name": "hello_world",
+      "name": "recipes_app",
       "request": "launch",
       "type": "dart"
     },
     {
-      "name": "hello_world (profile mode)",
+      "name": "recipes_app (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"
     },
     {
-      "name": "hello_world (release mode)",
+      "name": "recipes_app (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"

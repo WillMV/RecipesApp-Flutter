@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/providers/theme_provider.dart';
+import 'package:recipes_app/src/controllers/theme_controller.dart';
+import 'package:recipes_app/src/pages/drink_details.dart';
+import 'package:recipes_app/src/pages/meals_details.dart';
+import 'src/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,31 +13,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(builder: (context, child) {
-      return MaterialApp(
-        theme: ThemeProvider.instance.getTheme(),
-        title: 'Recipes App',
-        home: const HomePage(),
-      );
-    }, animation: ThemeProvider.instance,);
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: ThemeProvider.instance.getButtonIcon(),
-        onPressed: () {
-          ThemeProvider.instance.changeTheme();
-        },
-      ),
+    return AnimatedBuilder(
+      animation: ThemeProvider.instance,
+      builder: (context, child) {
+        return MaterialApp(
+          theme: ThemeProvider.instance.getTheme(),
+          title: 'Recipes App',
+          routes: {
+            '/home': (context) => const HomePage(),
+            '/detail/drink':(context) => const DrinkDetailPage(),
+            '/detail/meal':(context) => const MealDetailPage(),
+          },
+          initialRoute: '/home',
+        );
+      },
     );
   }
 }
+
