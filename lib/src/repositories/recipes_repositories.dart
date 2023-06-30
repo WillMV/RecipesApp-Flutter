@@ -16,13 +16,47 @@ class FetchRecipes {
     if (statusCode != 200) throw Exception('Requisição falhou $statusCode.');
   }
 
-   Future<List<Drink>> fetchDrinks() async {
+  void getterIngredients(Map<String, dynamic> json) {
+    List<String> ingredients = [];
+    int i = 1;
+    String key = 'strIngredient$i';
+
+    while (json['strIngredient$i'] != null && json['strIngredient$i'] != "") {
+      ingredients.add(json[key]);
+      i++;
+      key = 'strIngredient$i';
+    }
+
+    json["listIngredients"] = ingredients;
+  }
+
+  void getterMeasure(Map<String, dynamic> json) {
+    List<String> measure = [];
+    int i = 1;
+    String key = 'strMeasure$i';
+
+    while (json['strMeasure$i'] != null &&
+        json['strMeasure$i'] != " " &&
+        json['strMeasure$i'] != "") {
+      measure.add(json[key]);
+      i++;
+      key = 'strMeasure$i';
+    }
+
+    json["listMeasures"] = measure;
+  }
+
+  Future<List<Drink>> fetchDrinks() async {
     final response = await _client.get(drinkUrl);
 
     resValidate(response.statusCode);
 
     final jsonList = response.data["drinks"] as List;
-    return jsonList.map((json) => Drink.fromJson(json)).toList();
+    return jsonList.map((json) {
+      getterIngredients(json);
+      getterMeasure(json);
+      return Drink.fromJson(json);
+    }).toList();
   }
 
   Future<List<Meal>> fetchMeals() async {
@@ -31,6 +65,10 @@ class FetchRecipes {
     resValidate(response.statusCode);
 
     final jsonList = response.data["meals"] as List;
-    return jsonList.map((json) => Meal.fromJson(json)).toList();
+    return jsonList.map((json) {
+      getterIngredients(json);
+      getterMeasure(json);
+      return Meal.fromJson(json);
+    }).toList();
   }
 }
