@@ -7,12 +7,14 @@ class Meal implements Recipe {
   String name;
   @override
   String category;
-  String area;
   @override
   String instructions;
   @override
   String thumb;
-  // String tags;
+
+  final String area;
+  final List<String> ingredients;
+  //final String tags;
 
   Meal({
     required this.id,
@@ -21,6 +23,7 @@ class Meal implements Recipe {
     required this.area,
     required this.instructions,
     required this.thumb,
+    required this.ingredients,
     // required this.tags,
   });
 
@@ -32,6 +35,7 @@ class Meal implements Recipe {
       area: json["strArea"],
       instructions: json["strInstructions"],
       thumb: json["strMealThumb"],
+      ingredients: json["listIngredients"],
       // tags: json["strTags"],
     );
   }
