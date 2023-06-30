@@ -27,7 +27,9 @@ void main() {
                 category: 'category',
                 isAlcoholic: 'isAlcoholic',
                 instructions: 'instructions',
-                thumb: 'thumb')
+                thumb: 'thumb',
+                ingredients: ['ice']
+                )
           ]);
       expect(pageController.status.value, Status.start);
       await pageController.start();
