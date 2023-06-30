@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/instructions_card.dart';
 import '../controllers/detail_page_controller.dart';
 import '../components/detail_card.dart';
 import '../components/ingredients_list.dart';
@@ -26,34 +27,10 @@ class _DrinkDetailPageState extends State<DrinkDetailPage> {
         padding: EdgeInsets.zero,
         children: [
           DetailCard(recipe: recipe),
-          IngredientsList( ingredients: recipe!.ingredients,),
-          Column(children: [
-            const ListTile(
-              title: Text('Instructions',
-              style:
-                  TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-              elevation: 0,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                side: BorderSide(
-                  color: Colors.grey
-                )
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(recipe!.instructions)
-              ),
-                      ),
-            ),
-          ],)
+          IngredientsList( ingredients: recipe!.ingredients),
+          InstructionsCard(recipe: recipe)
         ],
       ),
     );
   }
 }
-
-
