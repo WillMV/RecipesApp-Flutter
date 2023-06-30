@@ -26,7 +26,7 @@ class _DrinkDetailPageState extends State<DrinkDetailPage> {
         padding: EdgeInsets.zero,
         children: [
           DetailCard(recipe: recipe),
-          const IngredientsList(),
+          IngredientsList( ingredients: recipe!.ingredients,),
           Column(children: [
             const ListTile(
               title: Text('Instructions',

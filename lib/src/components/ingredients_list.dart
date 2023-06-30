@@ -1,41 +1,38 @@
 import 'package:flutter/material.dart';
 
 class IngredientsList extends StatelessWidget {
+  final List<String> ingredients;
   const IngredientsList({
     super.key,
+    required this.ingredients,
   });
+
+  List<Text> widgetListIngredients() {
+    return ingredients
+        .map((ingredient) => Text('- $ingredient'))
+        .toList();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        ListTile(
+        const ListTile(
           title: Text('Ingredients',
-              style:
-                  TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
         ),
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Card(
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(5)),
-              side: BorderSide(
-                color: Colors.grey
-              )
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: ListBody(
-                children: [
-                  Text('- data de conteudo'),
-                  Text('- data de content'),
-                  Text('- data de nada'),
-                  Text('- data de dat'),
-                ],
-              ),
-            ),
-          ),
+              elevation: 0,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  side: BorderSide(color: Colors.grey)),
+              child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListBody(
+                    children: widgetListIngredients(),
+                  ))),
         ),
       ],
     );
