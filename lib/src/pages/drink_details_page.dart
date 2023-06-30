@@ -27,7 +27,7 @@ class _DrinkDetailPageState extends State<DrinkDetailPage> {
         padding: EdgeInsets.zero,
         children: [
           DetailCard(recipe: recipe),
-          IngredientsList( ingredients: recipe!.ingredients),
+          IngredientsList( ingredients: recipe!.ingredients, measures: recipe!.measures,),
           InstructionsCard(recipe: recipe)
         ],
       ),

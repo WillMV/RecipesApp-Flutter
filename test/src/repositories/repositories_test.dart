@@ -27,9 +27,9 @@ void main() {
             requestOptions: RequestOptions(),
           ));
       final data = await repository.fetchDrinks();
-      expect(data, isInstanceOf<List<String>>());
+      expect(data, isInstanceOf<List<Drink>>());
     });
-        test('Deve trazer uma instancia de Meal', () async {
+         test('Deve trazer uma instancia de Meal', () async {
       when(client.get(mealUrl)).thenAnswer((_) async => Response(
             data: meals,
             statusCode: 200,

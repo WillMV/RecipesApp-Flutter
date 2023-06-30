@@ -11,9 +11,10 @@ class Drink implements Recipe {
   String instructions;
   @override
   String thumb;
-  
+
   final String isAlcoholic;
   final List<String> ingredients;
+  final List<String> measures;
 
   Drink({
     required this.id,
@@ -23,6 +24,7 @@ class Drink implements Recipe {
     required this.instructions,
     required this.thumb,
     required this.ingredients,
+    required this.measures,
   });
 
   factory Drink.fromJson(Map<String, dynamic> json) {
@@ -34,6 +36,7 @@ class Drink implements Recipe {
       instructions: json["strInstructions"],
       thumb: json["strDrinkThumb"],
       ingredients: json["listIngredients"],
+      measures: json["listMeasures"],
     );
   }
 }

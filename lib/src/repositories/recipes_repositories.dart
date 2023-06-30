@@ -1,6 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:ffi';
-
 import 'package:dio/dio.dart';
 import 'package:recipes_app/src/models/drink_model.dart';
 import 'package:recipes_app/src/models/meal_model.dart';
@@ -18,7 +16,7 @@ class FetchRecipes {
     if (statusCode != 200) throw Exception('Requisição falhou $statusCode.');
   }
 
-  Map<String, dynamic> getterIngredients(Map<String, dynamic> json) {
+  void getterIngredients(Map<String, dynamic> json) {
     List<String> ingredients = [];
     int i = 1;
     String key = 'strIngredient$i';
@@ -30,7 +28,22 @@ class FetchRecipes {
     }
 
     json["listIngredients"] = ingredients;
-    return json;
+  }
+
+  void getterMeasure(Map<String, dynamic> json) {
+    List<String> measure = [];
+    int i = 1;
+    String key = 'strMeasure$i';
+
+    while (json['strMeasure$i'] != null &&
+        json['strMeasure$i'] != " " &&
+        json['strMeasure$i'] != "") {
+      measure.add(json[key]);
+      i++;
+      key = 'strMeasure$i';
+    }
+
+    json["listMeasures"] = measure;
   }
 
   Future<List<Drink>> fetchDrinks() async {
@@ -40,8 +53,9 @@ class FetchRecipes {
 
     final jsonList = response.data["drinks"] as List;
     return jsonList.map((json) {
-      Map<String, dynamic> jsonWithIngredientsList = getterIngredients(json);
-      return Drink.fromJson(jsonWithIngredientsList);
+      getterIngredients(json);
+      getterMeasure(json);
+      return Drink.fromJson(json);
     }).toList();
   }
 
@@ -52,8 +66,9 @@ class FetchRecipes {
 
     final jsonList = response.data["meals"] as List;
     return jsonList.map((json) {
-      Map<String, dynamic> jsonWithIngredientsList = getterIngredients(json);
-      return Meal.fromJson(jsonWithIngredientsList);
+      getterIngredients(json);
+      getterMeasure(json);
+      return Meal.fromJson(json);
     }).toList();
   }
 }

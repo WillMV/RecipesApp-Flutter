@@ -14,6 +14,7 @@ class Meal implements Recipe {
 
   final String area;
   final List<String> ingredients;
+  final List<String> measures;
   //final String tags;
 
   Meal({
@@ -24,6 +25,7 @@ class Meal implements Recipe {
     required this.instructions,
     required this.thumb,
     required this.ingredients,
+    required this.measures,
     // required this.tags,
   });
 
@@ -36,6 +38,7 @@ class Meal implements Recipe {
       instructions: json["strInstructions"],
       thumb: json["strMealThumb"],
       ingredients: json["listIngredients"],
+      measures: json["listMeasures"],
       // tags: json["strTags"],
     );
   }

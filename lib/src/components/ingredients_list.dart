@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 
 class IngredientsList extends StatelessWidget {
   final List<String> ingredients;
+  final List<String> measures;
   const IngredientsList({
     super.key,
     required this.ingredients,
+    required this.measures,
   });
 
   List<Text> widgetListIngredients() {
-    return ingredients
-        .map((ingredient) => Text('- $ingredient'))
-        .toList();
+    List<Text> texts = [];
+
+    for (var index = 0; index < ingredients.length; index++) {
+      texts.add(Text('- ${ingredients[index]} ${measures[index]}'));
+    }
+
+    return texts;
   }
 
   @override
