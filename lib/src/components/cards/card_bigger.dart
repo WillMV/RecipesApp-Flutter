@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/src/components/fav_button.dart';
+import 'package:recipes_app/src/components/buttons/fav_button.dart';
 import 'package:recipes_app/src/controllers/fav_controller.dart';
 import 'package:recipes_app/src/controllers/detail_page_controller.dart';
-import '../models/drink_model.dart';
-import '../models/meal_model.dart';
-import '../models/recipe_model.dart';
+import '../../models/drink_model.dart';
+import '../../models/meal_model.dart';
+import '../../models/recipe_model.dart';
 
 class CardBigger extends StatefulWidget {
   const CardBigger({super.key, required this.recipe});
@@ -45,7 +45,7 @@ class _CardBiggerState extends State<CardBigger> {
           children: [
             Image.network(
               widget.recipe.thumb,
-              width: 170,
+              width: 135,
             ),
             Expanded(
               child: Column(

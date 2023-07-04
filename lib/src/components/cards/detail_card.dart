@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/controllers/fav_controller.dart';
 import 'package:recipes_app/src/models/recipe_model.dart';
-import '../models/drink_model.dart';
-import 'fav_button.dart';
+import '../buttons/fav_button.dart';
 
 class DetailCard extends StatefulWidget {
   const DetailCard({
@@ -10,7 +9,7 @@ class DetailCard extends StatefulWidget {
     required this.recipe,
   });
 
-  final Drink? recipe;
+  final Recipe? recipe;
 
   @override
   State<DetailCard> createState() => _DetailCardState();

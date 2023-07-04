@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../components/card_middle.dart';
+import 'package:recipes_app/src/models/recipe_model.dart';
+import 'cards/card_middle.dart';
 
 class GridGallery extends StatelessWidget {
   const GridGallery({super.key, required this.recipes});
-  final List recipes;
+  final List<Recipe> recipes;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(

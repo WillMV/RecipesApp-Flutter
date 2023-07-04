@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../models/drink_model.dart';
+import 'package:recipes_app/src/models/recipe_model.dart';
 
 class InstructionsCard extends StatelessWidget {
   const InstructionsCard({
@@ -8,7 +7,7 @@ class InstructionsCard extends StatelessWidget {
     required this.recipe,
   });
 
-  final Drink? recipe;
+  final Recipe? recipe;
 
   @override
   Widget build(BuildContext context) {

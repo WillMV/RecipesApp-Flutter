@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../controllers/fav_controller.dart';
+import '../../controllers/fav_controller.dart';
 
 class FavButton extends StatelessWidget {
   const FavButton({
