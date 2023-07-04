@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:recipes_app/src/controllers/fav_controller.dart';
+import 'package:recipes_app/src/models/recipe_model.dart';
 import '../models/drink_model.dart';
+import 'fav_button.dart';
 
-class DetailCard extends StatelessWidget {
+class DetailCard extends StatefulWidget {
   const DetailCard({
     super.key,
     required this.recipe,
@@ -11,11 +13,25 @@ class DetailCard extends StatelessWidget {
   final Drink? recipe;
 
   @override
+  State<DetailCard> createState() => _DetailCardState();
+}
+
+class _DetailCardState extends State<DetailCard> {
+  late FavController favController;
+
+  @override
+  void initState() {
+    super.initState();
+    favController = FavController(widget.recipe as Recipe);
+    favController.isFavVerify();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Stack(children: [
       Flexible(
           child: Image.network(
-        recipe!.thumb,
+        widget.recipe!.thumb,
         height: 250,
         width: double.infinity,
         fit: BoxFit.cover,
@@ -24,8 +40,11 @@ class DetailCard extends StatelessWidget {
         height: 250,
         child: Center(
             child: Text(
-          recipe!.name,
-          style: const TextStyle(color: Colors.white, fontSize: 50, shadows: [Shadow(blurRadius: 50)]),
+          widget.recipe!.name,
+          style: const TextStyle(
+              color: Colors.white,
+              fontSize: 50,
+              shadows: [Shadow(blurRadius: 50)]),
         )),
       ),
       Padding(
@@ -35,15 +54,16 @@ class DetailCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                const BackButton(color: Colors.amber,),
+                const BackButton(
+                  color: Colors.amber,
+                ),
                 const Icon(Icons.wine_bar,
-                    color: Colors.amber,
-                    shadows: [Shadow(blurRadius: 10)]),
+                    color: Colors.amber, shadows: [Shadow(blurRadius: 10)]),
                 const SizedBox(
                   width: 10,
                 ),
                 Text(
-                  recipe!.category,
+                  widget.recipe!.category,
                   style: const TextStyle(
                       color: Colors.amber,
                       fontSize: 20,
@@ -51,16 +71,14 @@ class DetailCard extends StatelessWidget {
                 ),
               ],
             ),
-            const Row(
+            Row(
               children: [
-                Icon(Icons.share,
-                    color: Colors.amber,
-                    shadows: [Shadow(blurRadius: 10)]),
-                SizedBox(
+                const Icon(Icons.share,
+                    color: Colors.amber, shadows: [Shadow(blurRadius: 10)]),
+                const SizedBox(
                   width: 10,
                 ),
-                Icon(Icons.favorite_border,
-                    color: Colors.amber, shadows: [Shadow(blurRadius: 10)])
+                FavButton(favController: favController)
               ],
             ),
           ],

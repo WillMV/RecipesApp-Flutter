@@ -28,7 +28,8 @@ void main() {
                 isAlcoholic: 'isAlcoholic',
                 instructions: 'instructions',
                 thumb: 'thumb',
-                ingredients: ['ice']
+                ingredients: ['ice'],
+                measures: ['1/3']
                 )
           ]);
       expect(pageController.status.value, Status.start);
