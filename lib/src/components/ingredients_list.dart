@@ -13,7 +13,11 @@ class IngredientsList extends StatelessWidget {
     List<Text> texts = [];
 
     for (var index = 0; index < ingredients.length; index++) {
-      texts.add(Text('- ${ingredients[index]} ${measures[index]}'));
+      if (index < measures.length) {
+        texts.add(Text('- ${ingredients[index]} ${measures[index]}'));
+      } else {
+        texts.add(Text('- ${ingredients[index]}'));
+      }
     }
 
     return texts;
