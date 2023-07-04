@@ -9,11 +9,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // const srcImg = 'https://a.cdn-hotels.com/gdcs/production42/d1958/7cc955d5-867f-4f7f-980b-3f8c95c3933f.jpg?impolicy=fcrop&w=800&h=533&q=medium';
     return DefaultTabController(
         length: 3,
         child: Scaffold(
             appBar: AppBar(
+                title: const Text('RecipesApp'),
+                leading: Image.asset('assets/iconRecipesapp.png'),
                 bottom: const TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.local_dining)),
