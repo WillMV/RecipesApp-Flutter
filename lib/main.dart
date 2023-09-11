@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/controllers/theme_controller.dart';
-import 'package:recipes_app/src/pages/drink_details.dart';
-import 'package:recipes_app/src/pages/meals_details.dart';
+import 'package:recipes_app/src/pages/drink_details_page.dart';
+// import 'package:recipes_app/src/pages/meals_details.dart';
 import 'src/pages/home_page.dart';
 
 void main() {

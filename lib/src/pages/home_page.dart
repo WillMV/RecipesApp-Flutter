@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../controllers/theme_controller.dart';
-import 'drink_details.dart';
+import 'drink_details_page.dart';
 import 'drinks_page.dart';
 import 'meals_page.dart';
 
