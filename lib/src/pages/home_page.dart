@@ -15,7 +15,13 @@ class HomePage extends StatelessWidget {
             appBar: AppBar(
                 title: const Text('RecipesApp'),
                 leading: Image.asset('assets/iconRecipesapp.png'),
-                bottom: const TabBar(
+            ),
+            body: const TabBarView(children: [
+              MealPage(),
+              DrinkPage(),
+              FavPage(),
+            ]),
+            bottomNavigationBar: const TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.local_dining)),
                 Tab(icon: Icon(Icons.liquor)),
@@ -23,12 +29,7 @@ class HomePage extends StatelessWidget {
                   icon: Icon(Icons.favorite),
                 )
               ],
-            )),
-            body: const TabBarView(children: [
-              MealPage(),
-              DrinkPage(),
-              FavPage(),
-            ]),
+            ),
             floatingActionButton: AnimatedBuilder(
               animation: ThemeProvider.instance,
               builder: (ctx, child) {

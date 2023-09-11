@@ -11,10 +11,12 @@ class Drink implements Recipe {
   String instructions;
   @override
   String thumb;
+  @override
+  List<String> ingredients;
+  @override
+  List<String> measures;
 
   final String isAlcoholic;
-  final List<String> ingredients;
-  final List<String> measures;
 
   Drink({
     required this.id,
