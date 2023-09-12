@@ -11,10 +11,12 @@ class Meal implements Recipe {
   String instructions;
   @override
   String thumb;
+  @override
+  List<String> ingredients;
+  @override
+  List<String> measures;
 
   final String area;
-  final List<String> ingredients;
-  final List<String> measures;
   //final String tags;
 
   Meal({

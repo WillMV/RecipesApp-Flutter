@@ -17,6 +17,13 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   ThemeData getTheme() {
-    return isDarkTheme ? ThemeData.dark() : ThemeData.light();
+    return isDarkTheme
+        ? ThemeData(
+            brightness: Brightness.dark,
+          )
+        : ThemeData(
+            brightness: Brightness.light,
+            primarySwatch: Colors.amber,
+          );
   }
 }

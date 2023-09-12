@@ -28,7 +28,8 @@ class _MealPageState extends State<MealPage> {
   }
 
   _success() {
-    return GridGallery(recipes: controller.recipes);
+    return  GridGallery(recipes: controller.recipes);
+
   }
 
   stateManagement(Status status) {

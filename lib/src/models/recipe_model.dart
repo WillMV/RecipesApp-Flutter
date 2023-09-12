@@ -5,5 +5,7 @@ abstract class Recipe {
   late String category;
   late String instructions;
   late String thumb;
+  late List<String> ingredients;
+  late List<String> measures;
 
 }
