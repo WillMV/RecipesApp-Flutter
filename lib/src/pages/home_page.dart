@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FavPage()));
                     },
-                    icon: const Icon(Icons.favorite, color: Colors.red,))
+                    icon: const Icon(Icons.favorite, color: Colors.deepPurple,))
               ],
             ),
             body: const TabBarView(children: [
