@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/controllers/theme_controller.dart';
 import 'package:recipes_app/src/pages/drink_details_page.dart';
+import 'package:recipes_app/src/pages/fav_page.dart';
 import 'package:recipes_app/src/pages/meal_details_page.dart';
 import 'src/pages/home_page.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
             '/home': (context) => const HomePage(),
             '/detail/drink':(context) => const DrinkDetailPage(),
             '/detail/meal':(context) => const MealDetailPage(),
+            '/favs':(context) => const FavPage(),
           },
           initialRoute: '/home',
         );

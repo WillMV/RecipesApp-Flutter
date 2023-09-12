@@ -10,24 +10,27 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
+        length: 2,
         child: Scaffold(
             appBar: AppBar(
-                title: const Text('RecipesApp'),
-                leading: Image.asset('assets/iconRecipesapp.png'),
+              title: const Text('RecipesApp'),
+              leading: Image.asset('assets/iconRecipesapp.png'),
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FavPage()));
+                    },
+                    icon: const Icon(Icons.favorite, color: Colors.red,))
+              ],
             ),
             body: const TabBarView(children: [
               MealPage(),
               DrinkPage(),
-              FavPage(),
             ]),
             bottomNavigationBar: const TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.local_dining)),
                 Tab(icon: Icon(Icons.liquor)),
-                Tab(
-                  icon: Icon(Icons.favorite),
-                )
               ],
             ),
             floatingActionButton: AnimatedBuilder(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/models/recipe_model.dart';
-import 'cards/card_middle.dart';
+import 'cards/card_small.dart';
 
 class GridGallery extends StatelessWidget {
   const GridGallery({super.key, required this.recipes});
@@ -12,7 +12,8 @@ class GridGallery extends StatelessWidget {
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (ctx, index) {
-          return CardMiddle(recipe: recipes[index],
+          return CardSmall(
+            recipe: recipes[index],
           );
         });
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/models/recipe_model.dart';
-import 'cards/card_bigger.dart';
+import 'cards/card_middle.dart';
 
 class ListGallery extends StatelessWidget {
   const ListGallery({super.key, required this.recipes});
@@ -11,7 +11,7 @@ class ListGallery extends StatelessWidget {
     return ListView.builder(
         itemCount: recipes.length,
         itemBuilder: (ctx, index) {
-          return CardBigger(
+          return CardMiddle(
             recipe: recipes[index],
           );
         });
