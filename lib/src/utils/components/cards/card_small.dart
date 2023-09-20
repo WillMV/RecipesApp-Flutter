@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/src/components/buttons/fav_button.dart';
+import 'package:recipes_app/src/utils/components/buttons/fav_button.dart';
 import 'package:recipes_app/src/controllers/detail_page_controller.dart';
 import 'package:recipes_app/src/controllers/fav_controller.dart';
 import 'package:recipes_app/src/models/drink_model.dart';

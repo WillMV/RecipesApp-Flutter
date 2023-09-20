@@ -20,17 +20,18 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FavPage()));
                     },
-                    icon: const Icon(Icons.favorite, color: Colors.deepPurple,))
+                    icon: const Icon(Icons.favorite, color: Colors.deepPurple,)),
+                    // IconButton(onPressed: Navigator, icon: icon)
               ],
             ),
             body: const TabBarView(children: [
-              MealPage(),
               DrinkPage(),
+              MealPage(),
             ]),
             bottomNavigationBar: const TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.local_dining)),
                 Tab(icon: Icon(Icons.liquor)),
+                Tab(icon: Icon(Icons.local_dining)),
               ],
             ),
             floatingActionButton: AnimatedBuilder(

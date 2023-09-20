@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/src/components/grid_gallery.dart';
-import '../controllers/constaints_controller.dart';
+import 'package:recipes_app/src/utils/components/grid_gallery.dart';
+import '../controllers/constaints.dart';
 import '../controllers/main_page_controller.dart';
 
 class MealPage extends StatefulWidget {

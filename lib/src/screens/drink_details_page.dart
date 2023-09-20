@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/src/models/meal_model.dart';
-import '../components/cards/instructions_card.dart';
+import '../utils/components/cards/instructions_card.dart';
 import '../controllers/detail_page_controller.dart';
-import '../components/cards/detail_card.dart';
-import '../components/ingredients_list.dart';
+import '../utils/components/cards/detail_card.dart';
+import '../utils/components/ingredients_list.dart';
+import '../models/drink_model.dart';
 
-class MealDetailPage extends StatefulWidget {
-  const MealDetailPage({super.key});
+class DrinkDetailPage extends StatefulWidget {
+  const DrinkDetailPage({super.key});
 
   @override
-  State<MealDetailPage> createState() => _MealDetailPageState();
+  State<DrinkDetailPage> createState() => _DrinkDetailPageState();
 }
 
-class _MealDetailPageState extends State<MealDetailPage> {
-  late Meal? recipe;
+class _DrinkDetailPageState extends State<DrinkDetailPage> {
+  late Drink? recipe;
   @override
   void initState() {
     super.initState();
-    recipe = DetailPageController.instance.meal;
+    recipe = DetailPageController.instance.drink;
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:recipes_app/src/controllers/constaints_controller.dart';
+import 'package:recipes_app/src/constaints/enums.dart';
 import 'package:recipes_app/src/controllers/main_page_controller.dart';
 import 'package:recipes_app/src/models/drink_model.dart';
 import 'package:recipes_app/src/repositories/recipes_repositories.dart';

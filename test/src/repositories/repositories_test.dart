@@ -4,7 +4,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:recipes_app/src/models/drink_model.dart';
 import 'package:recipes_app/src/models/meal_model.dart';
-import 'package:recipes_app/src/repositories/constaints.dart';
+import 'package:recipes_app/src/constaints/urls.dart';
 import 'package:recipes_app/src/repositories/recipes_repositories.dart';
 import 'mock.dart';
 import 'repositories_test.mocks.dart';

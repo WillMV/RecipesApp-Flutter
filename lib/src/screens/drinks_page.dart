@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/src/controllers/constaints_controller.dart';
+import 'package:recipes_app/src/controllers/constaints.dart';
 import '../controllers/main_page_controller.dart';
 import '../models/drink_model.dart';
-import '../components/grid_gallery.dart';
+import '../utils/components/grid_gallery.dart';
 
 class DrinkPage extends StatefulWidget {
   const DrinkPage({super.key});

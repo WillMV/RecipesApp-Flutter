@@ -10,6 +10,7 @@ class ListGallery extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: recipes.length,
+        shrinkWrap: true,
         itemBuilder: (ctx, index) {
           return CardMiddle(
             recipe: recipes[index],

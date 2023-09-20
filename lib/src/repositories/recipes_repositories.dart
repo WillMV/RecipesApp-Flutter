@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:recipes_app/src/models/drink_model.dart';
 import 'package:recipes_app/src/models/meal_model.dart';
 
-import 'constaints.dart';
+import '../constaints/urls.dart';
 
 // https://www.themealdb.com/api/json/v1/1/search.php?s=
 // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=

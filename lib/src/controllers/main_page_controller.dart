@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:recipes_app/src/controllers/constaints_controller.dart';
+import 'package:recipes_app/src/constaints/enums.dart';
 import 'package:recipes_app/src/models/recipe_model.dart';
 import 'package:recipes_app/src/repositories/recipes_repositories.dart';
 

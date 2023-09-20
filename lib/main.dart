@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/src/controllers/theme_controller.dart';
-import 'package:recipes_app/src/pages/drink_details_page.dart';
-import 'package:recipes_app/src/pages/fav_page.dart';
-import 'package:recipes_app/src/pages/meal_details_page.dart';
-import 'src/pages/home_page.dart';
+import 'package:recipes_app/src/screens/drink_details_page.dart';
+import 'package:recipes_app/src/screens/fav_page.dart';
+import 'package:recipes_app/src/screens/meal_details_page.dart';
+import 'package:recipes_app/src/screens/profile_page.dart';
+import 'src/screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
             '/detail/drink':(context) => const DrinkDetailPage(),
             '/detail/meal':(context) => const MealDetailPage(),
             '/favs':(context) => const FavPage(),
+            '/profile':(context) => const ProfilePage(),
           },
           initialRoute: '/home',
         );
