@@ -9,8 +9,8 @@ class GridGallery extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
         itemCount: recipes.length,
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200, childAspectRatio: 0.7),
         itemBuilder: (ctx, index) {
           return CardSmall(
             recipe: recipes[index],

@@ -31,41 +31,32 @@ class _CardSmallState extends State<CardSmall> {
       elevation: 5,
       clipBehavior: Clip.hardEdge,
       child: InkWell(
-        splashColor: Colors.blue,
-        onTap: () {
-          if (widget.recipe.toString() == "Instance of 'Drink'") {
-            detailController.drink = widget.recipe as Drink;
-            Navigator.pushNamed(context, '/detail/drink');
-          } else {
-            detailController.meal = widget.recipe as Meal;
-            Navigator.pushNamed(context, '/detail/meal');
-          }
-        },
-        child: Stack(
-          children: [
-            Image.network(
-              widget.recipe.thumb,
-              // fit: BoxFit.contain,
-            ),
-            Center(
-              child: Text(
-                widget.recipe.name,
-                style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(blurRadius: 10),
-                      BoxShadow(
-                          blurRadius: 5,
-                          blurStyle: BlurStyle.outer,
-                          spreadRadius: 1)
-                    ]),
-              ),
-            ),
-            FavButton(favController: favController)
-          ],
-        ),
-      ),
+          splashColor: Colors.blue,
+          onTap: () {
+            if (widget.recipe.toString() == "Instance of 'Drink'") {
+              detailController.drink = widget.recipe as Drink;
+              Navigator.pushNamed(context, '/detail/drink');
+            } else {
+              detailController.meal = widget.recipe as Meal;
+              Navigator.pushNamed(context, '/detail/meal');
+            }
+          },
+          child: Column(children: [
+            Image.network(widget.recipe.thumb),
+            Padding(
+                padding: const EdgeInsets.only(left: 8, top: 8),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                  Flexible(
+                      child: Title(
+                    color: Colors.black,
+                    child: Text(
+                      widget.recipe.name,
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  )),
+                ]))
+          ])),
     );
   }
 }
