@@ -18,10 +18,17 @@ class HomePage extends StatelessWidget {
               actions: [
                 IconButton(
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FavPage()));
+                      Navigator.of(context).pushNamed('/favs');
                     },
-                    icon: const Icon(Icons.favorite, color: Colors.deepPurple,)),
-                    // IconButton(onPressed: Navigator, icon: icon)
+                    icon: const Icon(
+                      Icons.favorite,
+                      color: Colors.deepPurple,
+                    )),
+                IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/profile');
+                    },
+                    icon: const Icon(Icons.person))
               ],
             ),
             body: const TabBarView(children: [
