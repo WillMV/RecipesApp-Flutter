@@ -14,10 +14,12 @@ class _LoginPageState extends State<LoginPage> {
   final email = TextEditingController();
   final password = TextEditingController();
 
-  bool isLogin = true;
+  late bool isLogin;
   late String titulo;
   late String actionButton;
   late String toggleButton;
+
+  bool showPassword = false;
 
   @override
   void initState() {
@@ -29,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       isLogin = login;
       if (isLogin) {
-        titulo = 'WellCome';
+        titulo = 'Wellcome';
         actionButton = 'Login';
         toggleButton = "Don't have an account yet? Sign up now";
       } else {
@@ -49,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-    register() async {
+  register() async {
     try {
       await context.read<AuthService>().register(email.text, password.text);
     } on AuthExecption catch (e) {
@@ -95,11 +97,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: TextFormField(
                     controller: password,
-                    obscureText: true,
+                    obscureText: !showPassword,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), labelText: 'Password'),
                     validator: (value) {
@@ -111,6 +112,22 @@ class _LoginPageState extends State<LoginPage> {
                       return null;
                     },
                   ),
+                ),
+                Row(
+
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Checkbox.adaptive(
+                          value: showPassword,
+                          onChanged: (value) {
+                            setState(() {
+                              showPassword = !showPassword;
+                            });
+                          }),
+                    ),
+                        Text('Show password')
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.all(24),
