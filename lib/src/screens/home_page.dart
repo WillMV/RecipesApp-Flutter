@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
               actions: [
                 IconButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/favs');
+                      Navigator.of(context).pushNamed('/favorites');
                     },
                     icon: const Icon(
                       Icons.favorite,

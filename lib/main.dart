@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             '/home': (context) => const HomePage(),
             '/detail/drink': (context) => const DrinkDetailPage(),
             '/detail/meal': (context) => const MealDetailPage(),
-            '/favs': (context) => const FavPage(),
+            '/favorites': (context) => const FavPage(),
             '/profile': (context) => const ProfilePage(),
           },
           initialRoute: '/auth',

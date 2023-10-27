@@ -53,19 +53,24 @@ class _ProfilePageState extends State<ProfilePage> {
               )
             ],
           ),
-          const Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(Icons.favorite),
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text('Favorite Recipes'),
-              )
-            ],
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/favorites');
+            },
+            child: const Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(Icons.favorite),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text('Favorite Recipes'),
+                )
+              ],
+            ),
           ),
           Row(
             mainAxisSize: MainAxisSize.max,
