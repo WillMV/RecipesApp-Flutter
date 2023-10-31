@@ -28,7 +28,7 @@ class FetchFavorites {
     return data;
   }
 
-  void setFavorites(List<Recipe> recipe) async {
-    await _ref.set(recipe);
+  void setFavorites(List<Recipe> recipes) async {
+    await _ref.set(recipes);
   }
 }
